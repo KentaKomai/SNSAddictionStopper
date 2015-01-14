@@ -2,13 +2,29 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title>Link Maker</title>
-        <link rel="stylesheet" href="css/popup.css" type="text/css">
+        <title>SNS Addiction Stopper</title>
+        <link rel="stylesheet" href="css/popup.css" media="screen">
     </head>
     <body>
-        <p id="title"></p>
-        <p id="url"></p>
-        <a href="feed.html">feed</a>
+        <table style="width:200px;">
+            <thead>
+                <tr>
+                    <th>Service</td>
+                    <th> On / Off</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Facebook</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Twitter</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+            </tbody>
+        </table>
+
         <!-- Load JavaScript-->
         <script src="../js/lib/jquery.min.js"></script>
         <script src="../js/popup.js"></script>

@@ -9,6 +9,7 @@
   },
   "permissions": [
     "http://www.lgtm.in",
+    "storage",
     "tabs"
   ],
   "icons" : {
