@@ -4,13 +4,15 @@
   "version": "1.0",
   "description": "SNSをブラウザで見れないようにする",
   "background": {
-    "scripts" : ["js/background.js"]
+    "scripts" : ["js/background.js"],
+    "persistent": false
   },
   "browser_action": {
     "default_popup": "views/popup.html",
     "default_icon": "images/icon.png"
   },
   "permissions": [
+    "http://www.lgtm.in/",
     "storage",
     "notifications",
     "tabs"
