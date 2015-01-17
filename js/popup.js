@@ -9,15 +9,23 @@ $(function () {
         $fbSwitch.change( function(){
             if( $(this).is(':checked') ){ $fbNotice.text("Hidden"); }
             else { $fbNotice.text(""); }
+            SnsBlocker.toggleFacebook();
         });
         $twtrSwitch.change( function(){
             if( $(this).is(':checked') ){ $twtrNotice.text("Hidden"); }
             else { $twtrNotice.text(""); }
+            SnsBlocker.toggleTwitter();
         });
 
         function init() {
-            if(SnsBlocker.getFacebookState()){  $fbNotice.text("Hidden"); }
-            else(SnsBlocker.getTwitterState()){ $twtrNotice.text("Hidden");  }
+            if(SnsBlocker.getFacebookState()){ 
+                $fbSwitch.prop("checked", true);
+                $fbNotice.text("Hidden"); 
+            }
+            if(SnsBlocker.getTwitterState()){
+                $twtrSwitch.prop("checked", true);
+                $twtrNotice.text("Hidden");
+            }
         }
     });
 
@@ -35,28 +43,34 @@ $(function () {
 
       my.toggleFacebook = function(){
         var on = function(){ UserData.put(facebookKey, 1);  };
-        var off = function(){ UserData.delete(facebbokKey); };
+        var off = function(){ UserData.delete(facebookKey); };
         var isHidden = UserData.get(facebookKey)
-        if(isHidden){
+        if(isHidden == null){
           on();
         }else{
           off();
         }
 
       };
-      my.getFacebookState = function(){ if(UserData.get(facebookKey)){ return true; }else{ return false; }}
+      my.getFacebookState = function(){
+          console.dir(UserData.get(facebookKey))
+          if(UserData.get(facebookKey) != null){ return true; }else{ return false; }
+      }
 
       my.toggleTwitter = function(){
         var on = function(){ UserData.put(twitterKey, 1); };
         var off = function(){ UserData.delete(twitterKey); };
         var isHidden = UserData.get(twitterKey)
-        if(isHidden){
+        if(isHidden == null){
           on();
         }else{
           off();
         }
       };
-      my.getTwitterState = function(){ if(UserData.get(twitterKey)){ return true; }else{ return false;} }
+      my.getTwitterState = function(){
+          console.dir(UserData.get(twitterKey));
+          if(UserData.get(twitterKey) != null){ return true; }else{ return false;} 
+      }
       return my;
     }());
 });
