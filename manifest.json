@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "SNSをブラウザで見れないようにする",
   "background": {
-    "scripts" : ["js/background.js"],
+    "scripts" : ["js/common_object.js","js/background.js"],
     "persistent": false
   },
   "browser_action": {
