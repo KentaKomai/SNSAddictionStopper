@@ -12,9 +12,6 @@
     "default_icon": "images/icon.png"
   },
   "permissions": [
-    "http://www.lgtm.in/",
-    "storage",
-    "notifications",
     "tabs"
   ],
   "icons" : {
